@@ -16,7 +16,7 @@ app.get("/", async (request, response) => {
 app.post("/", async (request, response) => {
   try {
     const cars = await Car.create(request.body);
-    response.send(bikes);
+    response.send(cars);
   } catch ({ message }) {
     response.send(message);
   }

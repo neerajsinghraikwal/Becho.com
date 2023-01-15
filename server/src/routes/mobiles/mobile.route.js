@@ -12,6 +12,16 @@ app.get("/", async (request, response) => {
   }
 });
 
+
+app.post("/", async (request, response) => {
+  try {
+    const mobile = await Mobile.create(request.body);
+    response.send(mobile);
+  } catch ({ message }) {
+    response.send(message);
+  }
+});
+
 app.get("/:_id", async (request, response) => {
   const { _id } = request.params;
   try {
