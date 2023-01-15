@@ -27,8 +27,9 @@ function BikesSingle() {
   useEffect(() => {
     setIsLoaded(true);
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/bikes/${_id}`)
+      .get(`https://myolxclone.onrender.com/bikes/${_id}`)
       .then((res) => {
+        console.log(res.data)
         setData(res.data);
         setIsLoaded(false);
       });

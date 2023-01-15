@@ -82,7 +82,7 @@ const PostAdLaptop = () => {
         setFormData({ ...formData, postedOn: posted, type: "laptop" });
         console.log("formData", formData);
         let response = await axios.post(
-            "https://olx-data-server-hwrf.onrender.com/laptops",
+            "https://myolxclone.onrender.com/laptops",
             formData
         );
         console.log(response.data);
@@ -402,7 +402,7 @@ const PostAdLaptop = () => {
                             }}
                         >
                             <option value="Delhi"></option>
-                            <option value="Banglore">Banglore</option>
+                            <option value="Bangalore">Bangalore</option>
                             <option value="Delhi">Delhi</option>
                             <option value="Mumbai">Mumbai</option>
                         </select>

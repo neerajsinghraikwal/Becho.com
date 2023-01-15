@@ -26,7 +26,7 @@ function CarSingle() {
   useEffect(() => {
     setIsLoaded(true);
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/cars/${_id}`)
+      .get(`https://myolxclone.onrender.com/cars/${_id}`)
       .then((res) => {
         setData(res.data);
         setIsLoaded(false);

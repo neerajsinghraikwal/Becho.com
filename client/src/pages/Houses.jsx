@@ -40,7 +40,7 @@ const Houses = () => {
 
   useEffect(() => {
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/houses`)
+      .get(`https://myolxclone.onrender.com/houses`)
       .then(({ data }) => {
         setData(data);
         setFilterData(data);

@@ -26,7 +26,7 @@ function HouseSingle() {
   useEffect(() => {
     setIsLoaded(true);
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/houses/${_id}`)
+      .get(`https://myolxclone.onrender.com/houses/${_id}`)
       .then((res) => {
         setData(res.data);
         setIsLoaded(false);

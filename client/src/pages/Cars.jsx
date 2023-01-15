@@ -40,7 +40,7 @@ const Cars = () => {
 
   useEffect(() => {
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/cars`)
+      .get(`https://myolxclone.onrender.com/cars`)
       .then(({ data }) => {
         setData(data);
         setFilterData(data);

@@ -26,7 +26,7 @@ function MobileSingle() {
   useEffect(() => {
     setIsLoaded(true);
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/mobiles/${_id}`)
+      .get(`https://myolxclone.onrender.com/mobiles/${_id}`)
       .then((res) => {
         setData(res.data);
         setIsLoaded(false);

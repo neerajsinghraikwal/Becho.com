@@ -85,7 +85,7 @@ const PostAdHouse = () => {
         setFormData({ ...formData, postDate: posted, type: "house" });
         console.log("formData", formData);
         let response = await axios.post(
-            "https://olx-data-server-hwrf.onrender.com/houses",
+            "https://myolxclone.onrender.com/houses",
             formData
         );
         console.log(response.data);
@@ -474,7 +474,8 @@ const PostAdHouse = () => {
                             <option value="Delhi"></option>
                             <option value="Karnataka">Karnataka</option>
                             <option value="Delhi">Delhi</option>
-                            <option value="Maharastra">Maharastra</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Bangalore">Bangalore</option>
                         </select>
                     </Box>
                     <Box w="100%" border="1px" p="4%">

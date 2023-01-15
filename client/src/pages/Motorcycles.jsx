@@ -40,7 +40,7 @@ const Motorcycles = () => {
 
   useEffect(() => {
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/bikes`)
+      .get(`https://myolxclone.onrender.com/bikes`)
       .then(({ data }) => {
         setData(data);
         setFilterData(data);
@@ -244,7 +244,9 @@ const Motorcycles = () => {
           <Flex gap={5} flexWrap="wrap" justifyContent="flex-start" w="100%">
             {filterData.map((item) => (
               <Skeleton key={item._id} w="300px" h="auto" isLoaded={loading}>
-                <ProductCard item={item} />
+                <Link to={`/bikes/${item._id}`}>
+                  <ProductCard item={item} />
+                </Link>
               </Skeleton>
             ))}
           </Flex>

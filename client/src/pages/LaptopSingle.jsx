@@ -26,7 +26,7 @@ function LaptopSingle() {
   useEffect(() => {
     setIsLoaded(true);
     axios
-      .get(`https://olx-data-server-hwrf.onrender.com/laptops/${_id}`)
+      .get(`https://myolxclone.onrender.com/laptops/${_id}`)
       .then((res) => {
         setData(res.data);
         setIsLoaded(false);
