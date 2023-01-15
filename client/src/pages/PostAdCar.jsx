@@ -10,6 +10,7 @@ import {
   Input,
   Text,
   Textarea,
+  useToast
 } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
@@ -20,6 +21,7 @@ import { Link } from "react-router-dom";
 let imgarray = [];
 const PostAdCar = () => {
   const [photo, setPhoto] = useState([]);
+  const toast = useToast()
   const [formData, setFormData] = useState({});
 
   const handlephoto = (e) => {
@@ -80,14 +82,33 @@ const PostAdCar = () => {
   console.log(`${date} ${month} ${year}`);
 
   console.log(formData);
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setFormData({ ...formData, postedOn: posted, type: "car" });
     console.log("formData", formData);
+    try {
     let response = await axios.post(
       "https://myolxclone.onrender.com/cars",
       formData
-    );
-    console.log(response.data);
+      );
+      toast({
+         title: 'Product added',
+         description: "Product is ready to show",
+         status: 'success',
+         duration: 3000,
+         position: 'top',
+         isClosable: true,
+       })
+      } catch (err) {
+         toast({
+            title: 'Sorry for this',
+            description: "Try Again",
+            status: 'error',
+            duration: 3000,
+            position: 'top',
+            isClosable: true,
+          })
+      }
   };
 
   return (

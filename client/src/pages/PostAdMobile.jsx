@@ -10,6 +10,7 @@ import {
     Input,
     Text,
     Textarea,
+    useToast
 } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
@@ -20,6 +21,7 @@ import { Link } from "react-router-dom";
 let imgarray = [];
 const PostAdMobile = () => {
     const [photo, setPhoto] = useState([]);
+    const toast = useToast()
     const [formData, setFormData] = useState({});
 
     const handlephoto = (e) => {
@@ -78,13 +80,33 @@ const PostAdMobile = () => {
     let posted = `${date}/${month}/${year}`;
     console.log(`${date} ${month} ${year}`);
 
-    const handleSubmit = async () => {
-        setFormData({ ...formData, postedOn: posted, type: "mobile" });
-        console.log("formData", formData);
-        let response = await axios.post(
-            "https://myolxclone.onrender.com/mobiles",
-            formData
-        );
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+    setFormData({ ...formData, postedOn: posted, type: "mobile" });
+    console.log("formData", formData);
+    try {
+      let response = await axios.post(
+        "https://myolxclone.onrender.com/mobiles",
+        formData
+      );
+      toast({
+        title: "Product added",
+        description: "Product is ready to show",
+        status: "success",
+        duration: 3000,
+        position: "top",
+        isClosable: true,
+      });
+    } catch (err) {
+      toast({
+        title: "Sorry for this",
+        description: "Try Again",
+        status: "error",
+        duration: 3000,
+        position: "top",
+        isClosable: true,
+      });
+    }
     };
 
     return (
